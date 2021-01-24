@@ -3,9 +3,9 @@ import numpy as np
 import sys
 import os
 sys.path.append('..\\')
-from gtf import gtf
+from GTF import GTF as gtf
 
-fig_dir = '..\images\stimulus_restore'
+fig_dir =  os.path.join('output','images','stimulus_restore' )
 if not os.path.exists(fig_dir):
     os.makedirs(fig_dir)
 
@@ -19,7 +19,7 @@ def stimulus_restore_plot(irs,fs):
     fig = plt.figure()
 
     ha = fig.subplots(2,1)
-    ha[0].plot(t,irs.T)
+    ha[0].plot(t,irs.T[0])
     ha[0].set_title('irs')
     ha[0].set_xlabel('time(ms)')
 
@@ -39,6 +39,8 @@ def stimulus_restore_test():
     # gain normalization for all
     # not aligned
     ir = gt_filter.get_ir()
+    print(ir.shape)
+    print(ir[:,:ir_len].shape)
     fig = stimulus_restore_plot(ir[:,:ir_len],fs)
     savefig(fig,'irs.png')
 

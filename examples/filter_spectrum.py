@@ -3,7 +3,7 @@ import numpy as np
 import sys
 import os
 sys.path.append('..\\')
-from gtf import gtf
+from GTF import GTF as gtf
 
 def filter_spectrum():
     fs = 16e3
@@ -26,7 +26,7 @@ def filter_spectrum():
     phase_spectrum = np.concatenate((phase_spectrum1[:4000],phase_spectrum2))
     delays = np.divide(phase_spectrum,freq_bins)
 
-    fig_dir = '..\images\\filter_spectrum'
+    fig_dir = os.path.join('output','images','filter_spectrum' )
     if not os.path.exists(fig_dir):
         os.mkdir(fig_dir)
     linewidth = 2
@@ -71,8 +71,8 @@ def filter_spectrum():
     ha2.set_ylabel('delay(ms)',color=color )
     ha2.tick_params(axis='y',labelcolor=color)
 
+    # hf2.savefig(os.path.join(fig_dir,'amp_delay_spectrum.png'))
     hf2.savefig(os.path.join(fig_dir,'amp_delay_spectrum.png'))
-
 
 if __name__ == "__main__":
     filter_spectrum()

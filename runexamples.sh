@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+python examples/efficiency.py
+python examples/example.py
+python examples/filter_spectrum.py
+python examples/freq_range.py
+python examples/gain_normalization.py
+python examples/phase_compensation.py
+python examples/stimulus_restore.py
+python examples/validate.py

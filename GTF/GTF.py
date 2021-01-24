@@ -178,7 +178,9 @@ class GTF:
 
         norm_factors = np.zeros(self.n_band)
         y = np.zeros((self.n_band, x_len, n_chann), dtype=np.float)
+        print('number of bands: ' + str(self.n_band))
         for band_i in range(self.n_band):
+            print('Band loop. Band: ' + str(band_i))
             bw = self.bws[band_i]
             cf = self.cfs[band_i]
             k = np.exp(-tpt*bw)

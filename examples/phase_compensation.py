@@ -3,7 +3,7 @@ import numpy as np
 import os
 from GTF import GTF
 
-fig_dir = 'images/phase_compensation/'
+fig_dir = os.path.join('output','images','phase_compensation' )
 if not os.path.exists(fig_dir):
     os.makedirs(fig_dir)
 
@@ -17,7 +17,7 @@ def savefig(fig, fig_name):
 def my_plot(irs, fs):
     t = np.arange(irs.shape[1])/fs*1e3
     fig, ax = plt.subplots(1, 1)
-    ax.plot(t, np.flipud(irs).T, linewidth=3)  # plot high-cf filter ir first
+    ax.plot(t, np.flipud(irs).T[0], linewidth=3)  # plot high-cf filter ir first
     ax.set_xlabel('time(ms)')
     return fig
 

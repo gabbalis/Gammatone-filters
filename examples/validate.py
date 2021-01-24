@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 from GTF import GTF as gtf_proposed
 from gammatone import filters as gtf_ref
 
-fig_dir = 'images/validate/'
+fig_dir = os.path.join('output','images','validate' )
 if not os.path.exists(fig_dir):
     os.makedirs(fig_dir)
 
@@ -32,7 +32,7 @@ def compare_cfs():
     ax.set_xlabel('freq_band')
     ax.set_ylabel('freq(Hz)')
     ax.legend()
-    fig.savefig(f'images/validate/cfs_n{n_band}.png', dpi=100)
+    fig.savefig(os.path.join(fig_path, 'cfs_n' + str(n_band) + '.png'), dpi=100)
 
 
 def compare_ir():
@@ -64,7 +64,7 @@ def compare_ir():
     ax[1].plot(irs_eq[3]/np.max(irs_eq[3]), label='Equation')
     ax[1].legend()
     ax[1].set_xlim([0, 200])
-    savefig(fig, 'images/validate/compare.png')
+    savefig(fig, os.path.join('output','images','validate', 'compare.png'))
 
 
 if __name__ == "__main__":
